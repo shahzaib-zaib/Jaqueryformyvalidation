@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .error{
+            color: red;
+        }
+        .newerror{
+            border: 2px solid red;
+        }
+    </style>
 </head>
 <body>
     <form action="">
         <label for="">Please Enter Name :</label>
-        <input type="text" name="name">
+        <input type="text" name="username">
         <br>
         <label for="">Please Enter Email :</label>
-        <input type="email" name="email">
+        <input type="email" name="useremail">
         <br>
         <label for="">Please Enter Password :</label>
         <input type="password" name="pswd">
@@ -35,10 +43,37 @@
         <input type="submit" value="Click" name="" id="">
         <h3></h3>
     </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="/jquery-validation-1.19.2/dist/jquery.validate.min.js"></script>
     <script>
         $(document).ready( function(){
+            $("form").validate({
+                rules : {
+                    username : {
+                        required : true,
+                        minlength : 3
+                    },
+                    useremail : {
+                        required : true,
+                        email : true,
 
-        });
+
+                    }
+                },
+                highlight : function(element){
+                    $(element).addClass('newerror');
+                },
+                messages : {
+                    username : {
+                        required : "*",
+                        minlength : "Atleast enter 3 cherector"
+                    },
+                    useremail : {
+                        required : "*",
+                    }
+                }
+            })
+        })
     </script>
 </body>
 </html>
