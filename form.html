@@ -30,6 +30,7 @@
         <label for="">Enter Url :</label>
         <input type="text" name="websiteurl">
         <br>
+        <input type="hidden" name="less" id="less" value="18">
         <label for="">Age :</label>
         <input type="text" name="userage" id="">
         <br>
@@ -80,6 +81,19 @@
                     websiteurl : {
                         required : true,
                         url : true
+                    },
+                    "gender[]" : {
+                        required : true
+                    },
+                    check : {
+                        required : true
+                    },
+                    userage : {
+                        required : true,
+                        number : true,
+                        //range : [18, 50]
+                        greaterThenEqual : "#less"
+                        
                     }
                 },
                 highlight : function(element){
@@ -87,6 +101,12 @@
                 },
                 unhighlight : function(element){
                     $(element).removeClass('redborder');
+                },
+                // Error Count
+                invalidHandler : function(element)
+                {
+                    var a = $('form').validate();
+                    $("h3").text(a.numberOfInvalids() + " Errors Find ")
                 },
                 messages : {
                     username : {
