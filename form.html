@@ -47,6 +47,10 @@
     <script src="/jquery-validation-1.19.2/dist/jquery.validate.min.js"></script>
     <script>
         $(document).ready( function(){
+            // Created Rule
+            $.validator.addMethod("strongPassword",function(value){
+                return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
+            })
             $("form").validate({
                 rules : {
                     username : {
