@@ -7,10 +7,10 @@
 </head>
 <body>
     <form action="">
-        <label for="">Please Enter Your Name :</label>
+        <label for="">Please Enter Name :</label>
         <input type="text" name="name">
         <br>
-        <label for="">Please Enter Your Email :</label>
+        <label for="">Please Enter Email :</label>
         <input type="email" name="email">
         <br>
         <label for="">Please Enter Password :</label>
@@ -19,6 +19,13 @@
         <label for="">Confirm Password :</label>
         <input type="password" name="Cpswd">
         <br>
+        <label for="">Select Your Gender :</label>
+        <input type="radio" name="gender[]" value="male" id=""> Male
+        <input type="radio" name="gender[]" value="female" id=""> Female
+        <br>
+        <label for="gender[]" class="error"></label>
+        <br>
+        <input type="checkbox" name="check" id=""> I Accept your Agreement
         <br>
         <input type="submit" value="Click" name="" id="">
     </form>
