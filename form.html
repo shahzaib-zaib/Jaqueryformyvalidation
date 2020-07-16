@@ -8,7 +8,7 @@
         .error{
             color: red;
         }
-        .newerror{
+        .redborder{
             border: 2px solid red;
         }
     </style>
@@ -26,6 +26,9 @@
         <br>
         <label for="">Confirm Password :</label>
         <input type="password" name="Cpswd">
+        <br>
+        <label for="">Enter Url :</label>
+        <input type="text" name="websiteurl">
         <br>
         <label for="">Age :</label>
         <input type="text" name="userage" id="">
@@ -45,6 +48,7 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="/jquery-validation-1.19.2/dist/jquery.validate.min.js"></script>
+    <script src="/jquery-validation-1.19.2//dist/additional-methods.min.js"></script>
     <script>
         $(document).ready( function(){
             // Created Rule
@@ -55,7 +59,10 @@
                 rules : {
                     username : {
                         required : true,
-                        minlength : 3
+                        minlength : 3,
+                        maxlength : 10,
+                        nowhitespace : true,
+                        alphanumeric : true
                     },
                     useremail : {
                         required : true,
@@ -69,18 +76,23 @@
                         required : true,
                         equalTo : "#pass",
                         strongPassword : true
+                    },
+                    websiteurl : {
+                        required : true,
+                        url : true
                     }
                 },
                 highlight : function(element){
-                    $(element).addClass('newerror');
+                    $(element).addClass('redborder');
                 },
                 unhighlight : function(element){
-                    $(element).removeClass('newerror');
+                    $(element).removeClass('redborder');
                 },
                 messages : {
                     username : {
                         required : "*",
-                        minlength : "Atleast enter 3 cherector"
+                        minlength : "Atleast 3 Charactors are Allowed",
+                        maxlength : "Maximum 10 Charactors are Allowed"
                     },
                     useremail : {
                         required : "*"
@@ -91,6 +103,10 @@
                     cpswd : {
                         required : "*",
                         equalTo : "Confirm Password must match Password "
+                    },
+                    websiteurl : {
+                        required : "*",
+                        url : "Please folow the Url Pattern"
                     }
                 }
             })
