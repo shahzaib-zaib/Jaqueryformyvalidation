@@ -22,7 +22,7 @@
         <input type="email" name="useremail">
         <br>
         <label for="">Please Enter Password :</label>
-        <input type="password" name="pswd">
+        <input type="password" name="pswd" id="pass">
         <br>
         <label for="">Confirm Password :</label>
         <input type="password" name="Cpswd">
@@ -56,12 +56,20 @@
                     useremail : {
                         required : true,
                         email : true,
-
-
+                    },
+                    pswd : {
+                        required : true
+                    },
+                    cpswd : {
+                        required : true,
+                        equalTo : "#pass"
                     }
                 },
                 highlight : function(element){
                     $(element).addClass('newerror');
+                },
+                unhighlight : function(element){
+                    $(element).removeClass('newerror');
                 },
                 messages : {
                     username : {
@@ -69,7 +77,14 @@
                         minlength : "Atleast enter 3 cherector"
                     },
                     useremail : {
+                        required : "*"
+                    },
+                    pswd : {
+                        required : "*"
+                    },
+                    cpswd : {
                         required : "*",
+                        equalTo : "Confirm Password must match Password "
                     }
                 }
             })
