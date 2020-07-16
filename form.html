@@ -49,8 +49,8 @@
         $(document).ready( function(){
             // Created Rule
             $.validator.addMethod("strongPassword",function(value){
-                return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
-            })
+                return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);
+            },"Password Must Follow Standards")
             $("form").validate({
                 rules : {
                     username : {
@@ -62,11 +62,13 @@
                         email : true,
                     },
                     pswd : {
-                        required : true
+                        required : true,
+                        strongPassword : true
                     },
                     cpswd : {
                         required : true,
-                        equalTo : "#pass"
+                        equalTo : "#pass",
+                        strongPassword : true
                     }
                 },
                 highlight : function(element){
