@@ -11,6 +11,9 @@
         .redborder{
             border: 2px solid red;
         }
+        .greenborder{
+            border: 2px solid green;
+        }
     </style>
 </head>
 <body>
@@ -101,14 +104,14 @@
                     },
                     userdate : {
                         date : true,
-                        lessThan : "#apply"
+                        lessThanEqual : "#apply"
                     }
                 },
                 highlight : function(element){
                     $(element).addClass('redborder');
                 },
                 unhighlight : function(element){
-                    $(element).removeClass('redborder');
+                    $(element).addClass('greenborder');
                 },
                 // Error Count
                 invalidHandler : function(element)
@@ -135,6 +138,9 @@
                     websiteurl : {
                         required : "*",
                         url : "Please folow the Url Pattern"
+                    },
+                    userdate : {
+                        lessThanEqual : "Date has been expired"
                     }
                 }
             })
