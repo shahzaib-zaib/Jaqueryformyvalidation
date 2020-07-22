@@ -11,6 +11,10 @@
        $f = $_GET['userdate'];
        $g = $_GET['gender[]'];
 
+       $insert_query = "INSERT INTO registrationtable (Name,Email,Password,Age,DateofBirth,Gender,WebsiteUrl)
+       VALUES ('$a', '$b', '$c', '$d', '$e', '$f', '$g')";
+
+       $sqli = mysqli_query($con, $insert_query);
 
    }
 ?>
