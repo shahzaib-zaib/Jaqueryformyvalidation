@@ -34,6 +34,10 @@
         <label for="">Age :</label>
         <input type="text" name="userage" id="">
         <br>
+        <input type="hidden" name="apply" id="apply" value="2020-07-18">
+        <label for="">Date of Birth</label>
+        <input type="text" name="userdate">
+        <br>
         <label for="">Select Your Gender :</label>
         <input type="radio" name="gender[]" value="male" id=""> Male
         <input type="radio" name="gender[]" value="female" id=""> Female
@@ -94,6 +98,10 @@
                         //range : [18, 50]
                         greaterThenEqual : "#less"
                         
+                    },
+                    userdate : {
+                        date : true,
+                        lessThan : "#apply"
                     }
                 },
                 highlight : function(element){
