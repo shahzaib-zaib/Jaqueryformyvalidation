@@ -25,7 +25,6 @@
        }else{
         echo "<script>
         alert('Query Faild');
-        window.location.href = 'form.html';
         </script>";
        }
 
